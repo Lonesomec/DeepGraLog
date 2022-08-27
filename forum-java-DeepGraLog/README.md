@@ -89,8 +89,6 @@ Administrator
 ```
 
  
-![开发者客栈.png](https://static.developers.pub/8a71564c56c74416bb81ce87f3f2e719?)
- 
 
 # Feature
 
