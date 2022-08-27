@@ -5,6 +5,10 @@ We have made the following modifications for this project:</br>
 1.Modified the log format and eliminated redundant log information to facilitate data processing.</br>
 2.Four types of defects are injected into system code.(see comments section)</br>
 ...
+# Dataset
+The dataset includes 5,076,117 log messages which are combined with invocation information of
+the system source code files, and among the log messages,2010200 (39.6%) are anomalous ones caused by the four faults
+injected in. 
 
 ## Paper Reference
 
