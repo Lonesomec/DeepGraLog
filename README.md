@@ -1,6 +1,5 @@
 # DeepGraLog
 A sort of Log Anomaly Detection method based on Graph Representation Learning.</br>
-Original project address: https://github.com/Qbian61/forum-java.</br>
 We have made the following modifications for this project:</br>
 
 1.Modified the log format and eliminated redundant log information to facilitate data processing.</br>
