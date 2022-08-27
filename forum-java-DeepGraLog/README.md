@@ -1,22 +1,11 @@
-# 一 部署效果
+# Introduction
 
-- 开源版地址：http://42.51.0.196/
-- 商业版二开后地址：https://www.developers.pub
+forum-java is an open source and modern community platform, and it does：
+- Content oriented discussion forum;
+- Q&A oriented cyber community;
+- Fully open source;
 
-# 二 简介
-
-[forum-java](https://www.developers.pub/) 是一个开源的现代化社区平台，它实现了：
-
-- 面向内容讨论的论坛；
-- 面向知识问答的社区；
-- 100% 开源；
-- 欢迎到 [开发者客栈](https://www.developers.pub/) 官方讨论区了解更多。同时也欢迎关注官方公众号 智猿其说（下图）；
-
-![image.png](https://static.developers.pub/d6d7135e5dfe4af2b1e7067fe57ac836)
-
-- 感谢 破冰安全实验室 帮忙做的项目安全漏洞扫描，保障这个项目的每个用户可以放心大胆的使用，关注 破冰安全实验室 公众号了解更多安全知识（下图）；
-
-![破冰安全实验室](https://static.developers.pub/292955c12fca41528a329ca24daf9cc4)
+- Thanks to the Icebreaking Security Laboratory for helping to do the project security vulnerability scanning, so as to ensure that every user can use the system without fear of vulnerabilities attack;
 
 # 三 为什么要做这个项目？
 
