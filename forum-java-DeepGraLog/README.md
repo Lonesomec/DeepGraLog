@@ -7,16 +7,16 @@ forum-java is an open source and modern community platform, and it does：
 
 - Thanks to the Icebreaking Security Laboratory for helping to do the project security vulnerability scanning, so as to ensure that every user can use the system without fear of vulnerabilities attack;
 
-# 三 为什么要做这个项目？
+# Motivation
 
-- 企业在做开放平台领域建设，都需要一个开发者社区的网站供开发者学习交流（本项目参考了[微信开放平台](https://developers.weixin.qq.com/community/pay)、[头条开发者社区](https://forum.microapp.bytedance.com/mini-app)、[有赞云开发者社区](https://developers.youzanyun.com/)、[淘宝开放平台](https://open.bbs.taobao.com/list.html)等社区功能为需求背景开发）；
-- 市面上已有的开源社区大部分都是PHP语言的，Java开源的很少，spring boot框架开发的几乎没有。大多数互联网公司内部开发语言都是Java，很多都是spring boot/cloud开发框架，对于PHP开源的社区，无法很好的接入公司内部系统；
-- 现有的开源社区功能过于简单，无法满足企业的大部分需求；
-- 现有的开源社区界面风格老式，没有跟上时代发展的审美，且定制能力差；
-- 现有的开源社区缺乏实际运营需求的功能，管理功能过于简单，二开成本过高；
+- Most Internet companies devote themselves to constructing the open platform field, so it is indispensible to develop a developer community website for developers to learn and communicate.(This project refers to the community functional requirements developed by top domestic IT companies, such as wechat open platform, Toutiao developer community, Youzanyun developer community, and Taobao open platform);
+- Most of the existing online open source communities are developed by PHP language and Java, Few companies develop with the Spring Boot framework.The internal development language of most Internet companies is Java, and many of them are using Spring Boot/Cloud development framework. For the PHP open source community, the internal system of the company cannot be well accessed and administrated;
+- Existing open source community functions are too simple to meet most of the needs of the enterprise;
+- Existing open source communities have an old-fashioned interface style, an aesthetic that has not follow the trend, and poor customization;
+- Existing open source communities lack the functionality required to actually operate, and the management functionality is too simple and expensive to develop;
 
 
-# 四 功能列表
+# Function list
 
 ```$xslt
 
