@@ -3,8 +3,8 @@ A sort of Log Anomaly Detection method based on Graph Representation Learning.</
 Original project address: https://github.com/Qbian61/forum-java.</br>
 We have made the following modifications for this project:</br>
 
-1. Modified the log format and eliminated redundant log information to facilitate data processing.</br>
-2. Four types of defects are injected into system code.(see comments section)</br>
+1.Modified the log format and eliminated redundant log information to facilitate data processing.</br>
+2.Four types of defects are injected into system code.(see comments section)</br>
 ...
 # Dataset
 The dataset includes 5,076,117 log messages which are combined with invocation information of
