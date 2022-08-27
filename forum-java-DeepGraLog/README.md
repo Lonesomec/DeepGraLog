@@ -20,72 +20,72 @@ forum-java is an open source and modern community platform, and it does：
 
 ```$xslt
 
-用户端
-    文章分类
-        筛选文章
-    标签
-        查看详情
-        筛选文章/问答
-    文章
-        写文章
-        编辑
-        删除
-        评论
-        点赞
-        查看详情
-    问答
-        提问题
-        编辑
-        删除
-        查看详情
-        评论
-        关注
-        设置评论为最佳答案
-        筛选已解决问题
-        筛选未解决问题
-    用户
-        查看详情
-        编辑个人资料
-        更新登录密码
-        关注好友
-        查看粉丝
-    消息
-        文章/问答被关注通知
-        文章/问答被评论通知
-        个人被关注通知
-        设置消息为已读
-    关注
-        关注的用户文章/问答
-        关注的问答
-        评论的问答
-        点赞的文章
-        评论的文章
-    搜索
-        根据文章/问答标题/内容模糊搜索
+User
+    Article Classification
+        Article Filter
+    Label
+        Detail View
+        Article/Q&A Filter
+    Article
+        Writing
+        Edit
+        Deletion
+        Remark
+        Like
+        Detail View
+    Q&A
+        Ask Question
+        Edit
+        Deletion
+        Detail View
+        Remark
+        Follow
+        Set the comment as the best answer
+        Filter resolved questions
+        Filter unresolved questions
+    User
+        Detail View
+        Profile Edit
+        Password Update
+        Concerned friends
+        Fans View
+    Notification
+        Article/Q&A is followed
+        Article/Q&A is remarked
+        User is followed
+        Set the notification as read
+    Follow
+        Concerned friends' article/Q&A View
+        Concerned Q&A
+        Q&A remarked by user
+        Article liked by user
+        Article remarked by user
+    Search
+        By article/Q&A title or content
         
-管理端
-    用户管理
-        禁用/启用
-        设置为管理员/取消管理员
-    操作日志
-        操作类别筛选
-    文章管理
-        设置为官方
-        设置为置顶
-        设置为加精
-        审核通过（可见）
-        审核不过（不可见）
-    文章类别管理
-        审核通过（可见）
-        审核不过（不可见）
-        新增分类
-    问答管理
-        审核通过（可见）
-        审核不过（不可见）
-    标签管理
-        审核通过（可见）
-        审核不过（不可见）
-        新增标签
+Administrator
+    User Management
+        Enable/Disable
+        Administrator set/cancel
+    Operation Log
+        Operation Category Filter
+    Article Management
+        Set to Official
+        Set it to the top
+        set to Excellent
+        Approved(visible)
+        Unapproved(invisible)
+    Article Category Management
+        Approved(visible)
+        Unapproved(invisible)
+        Classification Addition
+    Q&A Management
+        Approved(visible)
+        Unapproved(invisible)
+    Label Management
+        Approved(visible)
+        Unapproved(invisible)
+        Label Addition
 ```
 
  
