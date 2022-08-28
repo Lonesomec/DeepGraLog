@@ -10,7 +10,7 @@ The dataset includes 5,076,117 log messages which are combined with invocation i
 the system source code files, and among the log messages,2010200 (39.6%) are anomalous ones caused by the four faults
 injected in. </br>
 
-You can get it from the release v1.0.</br>
+**You can get it from the release v1.0.**</br>
 
 ## Paper Reference
 
