@@ -49,9 +49,9 @@ public class FaqListController {
     @Resource
     private ConfigApiService configApiService;
 
-    private static final String ALL_TYPE_NAME = "全部问答";
-    private static final String SOLVED_TYPE_NAME = "已解决";
-    private static final String UNSOLVED_TYPE_NAME = "未解决";
+    private static final String ALL_TYPE_NAME = "All Q&A";
+    private static final String SOLVED_TYPE_NAME = "resolved";
+    private static final String UNSOLVED_TYPE_NAME = "unresolved";
 
     @GetMapping
     public String home(FaqRequest request, Model model) {
@@ -65,7 +65,7 @@ public class FaqListController {
         } else if (UNSOLVED_TYPE_NAME.equals(request.getType())) {
             solution = 0;
         } else {
-            throw ViewException.build("问答类别不存在");
+            throw ViewException.build("Q&A category do not exist");
         }
 
         model.addAttribute("currentDomain", WebConst.DOMAIN_FAQ);

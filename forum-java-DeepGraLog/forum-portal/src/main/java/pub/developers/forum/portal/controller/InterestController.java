@@ -58,7 +58,7 @@ public class InterestController {
     @GetMapping
     public String index(BasePageRequest pageRequest, Model model, HttpServletRequest request) {
         if (ObjectUtils.isEmpty(WebUtil.cookieGetSid(request))) {
-            throw ViewException.build("用户未登录");
+            throw ViewException.build("The user is not logged in.");
         }
 
         request.setAttribute(Constant.REQUEST_HEADER_TOKEN_KEY, WebUtil.cookieGetSid(request));

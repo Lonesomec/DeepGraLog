@@ -56,7 +56,7 @@ public abstract class AbstractPostsRepository {
             return PageResult.build(pageInfo.getTotal(), pageInfo.getSize(), new ArrayList<>());
         }
 
-        // 按 postsIds 顺序排序
+        // Sort in postsIds order
         List<PostsDO> postsDOS = postsIds.stream().map(postsId -> {
             for (PostsDO postsDO : queryPostsDOS) {
                 if (postsDO.getId().equals(postsId)) {

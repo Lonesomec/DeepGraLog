@@ -15,9 +15,9 @@ public enum UserRoleEn {
     /**
      *
      */
-    USER("USER", "用户"),
-    ADMIN("ADMIN", "管理员"),
-    SUPER_ADMIN("SUPER_ADMIN", "超级管理员"),
+    USER("USER", "user"),
+    ADMIN("ADMIN", "administrator"),
+    SUPER_ADMIN("SUPER_ADMIN", "super administrator"),
     ;
 
     private String value;

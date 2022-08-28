@@ -75,10 +75,10 @@ public abstract class AbstractPostsManager {
     @IsLogin
     @Transactional
     public void delete(Long id) {
-        BasePosts basePosts = postsRepository.get(id);//正常版本
-//        BasePosts basePosts = postsRepository.getId(id);//错误类型：改变调用方法名
-//        BasePosts basePosts = postsRepository.get(null);//错误类型：改变调用方法参数
-//        BasePosts basePosts = null;//错误类型：改变方法调用链
+        BasePosts basePosts = postsRepository.get(id);//normal
+//        BasePosts basePosts = postsRepository.getId(id);//call change
+//        BasePosts basePosts = postsRepository.get(null);//argument change
+//        BasePosts basePosts = null;//chain change
 
         CheckUtil.isEmpty(basePosts, ErrorCodeEn.POSTS_NOT_EXIST);
         CheckUtil.isFalse(LoginUserContext.getUser().getId().equals(basePosts.getAuthorId()), ErrorCodeEn.POSTS_NOT_EXIST);
@@ -90,10 +90,10 @@ public abstract class AbstractPostsManager {
 
     @IsLogin(role = UserRoleEn.ADMIN)
     public void auditState(AdminBooleanRequest booleanRequest) {
-        BasePosts basePosts = postsRepository.get(booleanRequest.getId());//正常版本
-//        BasePosts basePosts = postsRepository.getId(booleanRequest.getId());//错误类型：改变调用方法名
-//        BasePosts basePosts = postsRepository.get(null);//错误类型：改变调用方法参数
-//        BasePosts basePosts = null;//错误类型：改变方法调用链
+        BasePosts basePosts = postsRepository.get(booleanRequest.getId());//normal
+//        BasePosts basePosts = postsRepository.getId(booleanRequest.getId());//call change
+//        BasePosts basePosts = postsRepository.get(null);//argument change
+//        BasePosts basePosts = null;//chain change
         CheckUtil.isEmpty(basePosts, ErrorCodeEn.ARTICLE_NOT_EXIST);
 
         basePosts.setAuditState(booleanRequest.getIs() ? AuditStateEn.PASS : AuditStateEn.REJECT);

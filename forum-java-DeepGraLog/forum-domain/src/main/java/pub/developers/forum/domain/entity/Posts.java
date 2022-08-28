@@ -29,7 +29,7 @@ public class Posts extends BasePosts {
     private Boolean marrow;
 
     /**
-     * 最佳答案 ID
+     * excellent answer ID
      */
     private Long solutionId;
 }

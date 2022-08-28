@@ -10,7 +10,7 @@ import pub.developers.forum.common.enums.CacheBizTypeEn;
 public interface CacheService {
 
     /**
-     * 存储
+     * store
      * @param key
      * @param value
      * @return
@@ -18,7 +18,7 @@ public interface CacheService {
     boolean set(CacheBizTypeEn bizType, String key, String value);
 
     /**
-     * 存储并设置超时时长(单位:秒)
+     * Store and set Timeout period (unit: second)
      * @param key
      * @param value
      * @param seconds
@@ -27,7 +27,7 @@ public interface CacheService {
     boolean setAndExpire(CacheBizTypeEn bizType, String key, String value, Long seconds);
 
     /**
-     * 获取值
+     * get key
      * @param key
      * @return
      */
@@ -37,14 +37,14 @@ public interface CacheService {
     String get_error(CacheBizTypeEn bizType, String key);
 
     /**
-     * 判断是否存在
+     * check if it does exist
      * @param key
      * @return
      */
     Boolean exists(CacheBizTypeEn bizType, String key);
 
     /**
-     * 删除
+     * delete
      * @param key
      * @return
      */

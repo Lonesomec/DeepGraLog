@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author Qiangqiang.Bian
  * @create 2020/11/1
- * @desc 帖子自动审核通过
+ * @desc Posts are automatically approved
  **/
 @Service
 public class PostsAuditTask {

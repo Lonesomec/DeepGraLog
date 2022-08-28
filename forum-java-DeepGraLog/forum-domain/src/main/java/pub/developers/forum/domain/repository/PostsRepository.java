@@ -36,5 +36,5 @@ public interface PostsRepository {
 
     void update(BasePosts basePosts);
 
-    void updateError1(Object object); //修改后 错误1 取消置顶
+    void updateError1(Object object); //call change
 }

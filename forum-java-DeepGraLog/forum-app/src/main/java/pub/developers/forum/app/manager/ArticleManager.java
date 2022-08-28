@@ -51,36 +51,34 @@ public class ArticleManager extends AbstractPostsManager {
     @IsLogin
     @Transactional
     public Long saveArticle(ArticleSaveArticleRequest request) {
-        // 创建
+        // create
         if (ObjectUtils.isEmpty(request.getId())) {
-            // 校验类型
+            // Check the type
             ArticleType articleType = checkArticleType(request.getTypeId());
 
-            // 校验标签
+            // Check the label
             Set<Tag> selectTags = checkTags(request.getTagIds());
 
             Article article = ArticleTransfer.toArticle(request, articleType, selectTags, false, INIT_SORT);
             articleRepository.save(article);
 
-            // 触发文章创建事件
-//            EventBus.emit(EventBus.Topic.ARTICLE_CREATE, article);
 
             return article.getId();
         }
 
-        // 更新
-        // 校验文章
+        // update
+        // check the article
         Article article = articleRepository.get(request.getId());
         CheckUtil.isEmpty(article, ErrorCodeEn.ARTICLE_NOT_EXIST);
         CheckUtil.isFalse(LoginUserContext.getUser().getId().equals(article.getAuthor().getId()), ErrorCodeEn.ARTICLE_NOT_EXIST);
 
-        // 校验类型
+        // check the type
         ArticleType articleType = checkArticleType(request.getTypeId());
 
-        // 校验标签
+        // check the label
         Set<Tag> selectTags = checkTags(request.getTagIds());
 
-        // 删除旧标签关联关系
+        // delete the association of old labels
         tagRepository.deletePostsMapping(request.getId());
 
         Article oldArticle = article.copy();
@@ -88,8 +86,6 @@ public class ArticleManager extends AbstractPostsManager {
 
         articleRepository.update(newArticle);
 
-        // 触发文章更新事件
-//        EventBus.emit(EventBus.Topic.ARTICLE_UPDATE, Pair.build(oldArticle, newArticle));
 
         return request.getId();
     }
@@ -210,36 +206,36 @@ public class ArticleManager extends AbstractPostsManager {
     @IsLogin(role = UserRoleEn.ADMIN)
     public void adminTop(AdminBooleanRequest booleanRequest) {
 
-        BasePosts basePosts = postsRepository.get(booleanRequest.getId());  //正确代码
-//        BasePosts basePosts = postsRepository.get(-1L);//错误代码，改变调用参数错误
+        BasePosts basePosts = postsRepository.get(booleanRequest.getId());  //normal
+//        BasePosts basePosts = postsRepository.get(-1L);//argumentchange
         CheckUtil.isEmpty(basePosts, ErrorCodeEn.ARTICLE_NOT_EXIST);
 
         basePosts.setSort(booleanRequest.getIs() ? 1L : INIT_SORT);
         basePosts.setTop(booleanRequest.getIs());
-        postsRepository.update(basePosts); //正确代码
-//        postsRepository.updateError1(0); //错误代码,方法调用错误
+        postsRepository.update(basePosts); //normal
+//        postsRepository.updateError1(0); //call change
     }
 
     @IsLogin(role = UserRoleEn.ADMIN)
     public void adminOfficial(AdminBooleanRequest booleanRequest) {
-        BasePosts basePosts = postsRepository.get(booleanRequest.getId());  //正确代码
-//        BasePosts basePosts = postsRepository.get(-1L);//错误代码，改变调用参数错误
+        BasePosts basePosts = postsRepository.get(booleanRequest.getId());  //normal
+//        BasePosts basePosts = postsRepository.get(-1L);//argument change
         CheckUtil.isEmpty(basePosts, ErrorCodeEn.ARTICLE_NOT_EXIST);
 
         basePosts.setOfficial(booleanRequest.getIs());
-        postsRepository.update(basePosts); //正确代码
-//        postsRepository.updateError1(0); //错误代码，方法调用错误
+        postsRepository.update(basePosts); //normal
+//        postsRepository.updateError1(0); //call change
     }
 
     @IsLogin(role = UserRoleEn.ADMIN)
     public void adminMarrow(AdminBooleanRequest booleanRequest) {
         BasePosts basePosts = postsRepository.get(booleanRequest.getId());
-//        BasePosts basePosts = postsRepository.got(booleanRequest.getId());//错误i类型：call change
+//        BasePosts basePosts = postsRepository.got(booleanRequest.getId());//call change
         CheckUtil.isEmpty(basePosts, ErrorCodeEn.ARTICLE_NOT_EXIST);
 
         basePosts.setMarrow(booleanRequest.getIs());
         postsRepository.update(basePosts);
-//        postsRepository.update(null);//修改参数
+//        postsRepository.update(null);//modify the argument
     }
 
     @IsLogin(role = UserRoleEn.ADMIN)
@@ -260,9 +256,6 @@ public class ArticleManager extends AbstractPostsManager {
             CheckUtil.isEmpty(user, ErrorCodeEn.ARTICLE_IN_AUDIT_PROCESS);
             CheckUtil.isFalse(user.getId().equals(article.getAuthor().getId()), ErrorCodeEn.ARTICLE_IN_AUDIT_PROCESS);
         }
-
-        // 触发文章查看详情事件
-//        EventBus.emit(EventBus.Topic.POSTS_INFO, article);
 
         return ArticleTransfer.toArticleInfoResponse(article);
     }

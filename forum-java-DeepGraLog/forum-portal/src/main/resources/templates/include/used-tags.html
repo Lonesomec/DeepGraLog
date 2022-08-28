@@ -4,7 +4,7 @@
 <div th:fragment="used_tags(title, usedTags)">
     <div th:if="${!#lists.isEmpty(usedTags)}" class="card">
         <div class="card-header" style="background-color: white;">
-            <span th:text="${title}">常用标签</span>
+            <span th:text="${title}">Commonly used tags</span>
         </div>
         <div class="card-body">
             <a th:each="tag : ${usedTags}"

@@ -11,8 +11,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum MessageReadEn {
-    YES("YES", "已读"),
-    NO("NO", "未读")
+    YES("YES", "read"),
+    NO("NO", "unread")
     ;
 
     private String value;

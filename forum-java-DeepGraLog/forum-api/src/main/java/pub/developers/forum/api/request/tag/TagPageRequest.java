@@ -21,17 +21,17 @@ public class TagPageRequest implements Serializable {
     private String groupName;
 
     /**
-     * 名称
+     * name
      */
     private String name;
 
     /**
-     * 描述
+     * description
      */
     private String description;
 
     /**
-     * 审核状态
+     * audit state
      */
     private String auditState;
 

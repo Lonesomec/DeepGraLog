@@ -5,7 +5,7 @@ import lombok.*;
 /**
  * @author Qiangqiang.Bian
  * @create 2020/7/30
- * @desc 文章点赞/问答关注
+ * @desc Like the article/follow the Q&A
  **/
 @Data
 @Builder

@@ -13,7 +13,7 @@ import pub.developers.forum.domain.entity.value.IdValue;
 /**
  * @author Qiangqiang.Bian
  * @create 2020/7/30
- * @desc 消息
+ * @desc Message
  **/
 @Data
 @Builder
@@ -22,42 +22,42 @@ import pub.developers.forum.domain.entity.value.IdValue;
 public class Message extends BaseEntity {
 
     /**
-     * 消息发送渠道
+     * Message channel
      */
     private MessageChannelEn channel;
 
     /**
-     * 消息类型
+     *
      */
     private MessageTypeEn type;
 
     /**
-     * 是否已读
+     * read/unread
      */
     private MessageReadEn read;
 
     /**
-     * 触发人
+     *
      */
     private IdValue sender;
 
     /**
-     * 收件人
+     *
      */
     private IdValue receiver;
 
     /**
-     * 标题
+     *
      */
     private String title;
 
     /**
-     * 内容类型
+     *
      */
     private MessageContentTypeEn contentType;
 
     /**
-     * 内容
+     *
      */
     private String content;
 

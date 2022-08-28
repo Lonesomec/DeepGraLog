@@ -37,9 +37,9 @@ public class QiNiuFileServiceImpl implements FileService {
     @Override
     public String uploadImg(byte[] base64, String key) {
         try {
-            // 如果报错，可参考这篇文档：https://www.developers.pub/article/299
+            //
 
-            // 这个位置需要注意  Region.huanan() 表示的是华南地区， 空间开了那个地区就填那个地区。
+            //
             Configuration cfg = new Configuration(Region.huanan());
 
             UploadManager uploadManager = new UploadManager(cfg);
@@ -52,7 +52,7 @@ public class QiNiuFileServiceImpl implements FileService {
 
             return accessDomain + res.jsonToObject(Ret.class).key;
         } catch (QiniuException e) {
-            LogUtil.info(log, e, "上传文件异常，e.msg={}", e.getMessage());
+            LogUtil.info(log, e, "File upload Failure，e.msg={}", e.getMessage());
             CheckUtil.isTrue(true, ErrorCodeEn.FILE_UPLOAD_FAIL);
         }
         return null;

@@ -117,7 +117,7 @@ public class UserRepositoryImpl implements UserRepository {
         try {
             userFollowDAO.insert(userFollowDO);
         } catch (DuplicateKeyException e) {
-            LogUtil.info(log, "唯一键冲突，已存在关注关系，followed={}, follower={}", followed, follower);
+            LogUtil.info(log, "A unique key conflict exists，followed={}, follower={}", followed, follower);
         }
     }
 
@@ -188,7 +188,7 @@ public class UserRepositoryImpl implements UserRepository {
             return PageResult.build(pageInfo.getTotal(), pageInfo.getSize(), new ArrayList<>());
         }
 
-        // 按 uids 顺序排序
+        // Sort in Uids order
         List<UserDO> userDOList = uids.stream().map(uid -> {
             for (UserDO userDO : userDOS) {
                 if (userDO.getId().equals(uid)) {

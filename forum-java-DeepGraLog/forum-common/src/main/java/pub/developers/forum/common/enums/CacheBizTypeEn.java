@@ -11,8 +11,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum CacheBizTypeEn {
-    USER_LOGIN_TOKEN("USER_LOGIN_TOKEN", "用户登录凭证 token"),
-    TAG_USED("TAG_USED", "已使用标签")
+    USER_LOGIN_TOKEN("USER_LOGIN_TOKEN", "User login certificate Token"),
+    TAG_USED("TAG_USED", "Labels in use")
     ;
 
     private String value;

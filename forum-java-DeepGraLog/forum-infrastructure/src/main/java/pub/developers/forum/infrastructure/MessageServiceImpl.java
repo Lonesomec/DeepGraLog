@@ -26,7 +26,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void send(Message message) {
-        // 邮件
+        // mail
         if (MessageChannelEn.MAIL.equals(message.getChannel())) {
             if (MessageContentTypeEn.HTML.equals(message.getContentType())) {
                 mailService.sendHtml(message);
@@ -36,7 +36,7 @@ public class MessageServiceImpl implements MessageService {
             }
         }
 
-        // 站内信
+        // message
         if (MessageChannelEn.STATION_LETTER.equals(message.getChannel())) {
             // do nothing
         }

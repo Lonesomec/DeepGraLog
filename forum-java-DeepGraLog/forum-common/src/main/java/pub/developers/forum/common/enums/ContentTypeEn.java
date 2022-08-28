@@ -12,8 +12,8 @@ import pub.developers.forum.common.exception.BizException;
 @AllArgsConstructor
 @Getter
 public enum ContentTypeEn {
-    HTML("HTML", "html富文本"),
-    MARKDOWN("MARKDOWN", "markdown内容"),
+    HTML("HTML", "HTML rich text"),
+    MARKDOWN("MARKDOWN", "markdown content"),
     ;
 
     private String value;

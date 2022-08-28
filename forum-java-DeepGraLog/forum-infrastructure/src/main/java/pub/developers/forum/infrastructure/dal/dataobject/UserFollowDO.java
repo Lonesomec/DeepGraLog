@@ -17,17 +17,17 @@ import lombok.NoArgsConstructor;
 public class UserFollowDO extends BaseDO {
 
     /**
-     * 被关注主体ID
+     *
      */
     private Long followed;
 
     /**
-     * 关注类型
+     *
      */
     private String followedType;
 
     /**
-     * 关注人ID
+     *
      */
     private Long follower;
 

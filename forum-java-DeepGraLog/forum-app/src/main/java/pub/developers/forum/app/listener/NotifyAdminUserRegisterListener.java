@@ -29,7 +29,6 @@ public class NotifyAdminUserRegisterListener extends EventBus.EventHandler<User>
     @Override
     public void onMessage(User user) {
 
-        // 发送消息通知
         messageService.send(Message.builder()
                 .channel(MessageChannelEn.MAIL)
                 .type(MessageTypeEn.USER_REGISTER_NOTIFY_ADMIN)

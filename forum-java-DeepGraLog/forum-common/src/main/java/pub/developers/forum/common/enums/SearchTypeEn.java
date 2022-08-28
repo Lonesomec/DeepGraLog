@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SearchTypeEn {
-    POSTS("POSTS", "帖子"),
+    POSTS("POSTS", "post"),
     ;
 
     private String value;

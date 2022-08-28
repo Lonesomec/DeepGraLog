@@ -13,7 +13,6 @@
             data-slide-to="0" class="active"
             data-target="#main_carousel"></li>
     </ul>
-    <!-- 轮播图片 -->
     <div class="carousel-inner">
         <div th:each="carousel,iterStat : ${carouselList}"
              th:class="${'carousel-item ' + (iterStat.index == 0 ? 'active' : '')}"
@@ -26,7 +25,6 @@
             </a>
         </div>
     </div>
-    <!-- 左右切换按钮 -->
     <a class="carousel-control-prev" th:href="${'#' + id}" href="#main_carousel" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </a>

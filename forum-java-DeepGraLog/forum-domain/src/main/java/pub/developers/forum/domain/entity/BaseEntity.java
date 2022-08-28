@@ -15,12 +15,12 @@ public abstract class BaseEntity {
     private Long id;
 
     /**
-     * 创建时间
+     * create time
      */
     private Date createAt;
 
     /**
-     * 更新时间
+     * update time
      */
     private Date updateAt;
 

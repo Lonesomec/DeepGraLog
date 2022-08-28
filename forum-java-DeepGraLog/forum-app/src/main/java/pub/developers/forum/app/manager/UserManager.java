@@ -46,20 +46,20 @@ public class UserManager extends AbstractLoginManager {
     private OptLogRepository optLogRepository;
 
     /**
-     * 邮箱 + 密码 登录
+     * Email + password login
      * @param request
      * @return
      */
     public String emailRequestLogin(UserEmailLoginRequest request) {
-        // 判断邮箱是否存在
+        // Check whether the mailbox exists
         User user = userRepository.getByEmail(request.getEmail());
         CheckUtil.isEmpty(user, ErrorCodeEn.USER_NOT_EXIST);
         CheckUtil.isTrue(UserStateEn.DISABLE.equals(user.getState()), ErrorCodeEn.USER_STATE_IS_DISABLE);
 
-        // 判断登录密码是否正确
+        // Check whether the login password is correct
         CheckUtil.isFalse(StringUtil.md5UserPassword(request.getPassword()).equals(user.getPassword()), ErrorCodeEn.USER_LOGIN_PWD_ERROR);
 
-        // 更新最后登录时间
+        // Update the last login time
         user.setLastLoginTime(new Date());
         userRepository.update(user);
 
@@ -81,29 +81,29 @@ public class UserManager extends AbstractLoginManager {
 
     @IsLogin(role = UserRoleEn.ADMIN)
     public void enable(Long uid) {
-        User user = userRepository.get(uid);//正常版本(调用链错误才注释掉)
-//        User user = null;//错误类型：改变方法调用链
+        User user = userRepository.get(uid);//normal
+//        User user = null;//chain change
         CheckUtil.isEmpty(user, ErrorCodeEn.USER_NOT_EXIST);
 
         user.setState(UserStateEn.ENABLE);
-        userRepository.update(user);//正常版本
-//        userRepository.updateNull(user);//错误类型：改变调用方法名
-//        userRepository.update(null);//错误类型：改变调用方法参数
+        userRepository.update(user);//normal
+//        userRepository.updateNull(user);//call change
+//        userRepository.update(null);//argument change
     }
 
     @IsLogin(role = UserRoleEn.ADMIN)
     public void disable(Long uid) {
-        User user = userRepository.get(uid);//正常版本(调用链错误才注释掉)
-//        User user = null;//错误类型：改变方法调用链
+        User user = userRepository.get(uid);//normal
+//        User user = null;//chanin change
         CheckUtil.isEmpty(user, ErrorCodeEn.USER_NOT_EXIST);
         CheckUtil.isEmpty(UserRoleEn.SUPER_ADMIN.equals(user.getRole()), ErrorCodeEn.COMMON_TOKEN_NO_PERMISSION);
 
         user.setState(UserStateEn.DISABLE);
-        userRepository.update(user);//正常版本
-//        userRepository.updateNull(user);//错误类型：改变调用方法名
-//        userRepository.update(null);//错误类型：改变调用方法参数
+        userRepository.update(user);//normal
+//        userRepository.updateNull(user);//call change
+//        userRepository.update(null);//argument change
 
-        // 删除用户登录信息
+        // delete the login information of a user
         deleteLoginUser(uid);
     }
 
@@ -128,16 +128,16 @@ public class UserManager extends AbstractLoginManager {
     }
 
     /**
-     * 获取 token 对应用户详情
+     * Obtain details about the user corresponding to the token
      * @param token
      * @return
      */
     public UserInfoResponse info(String token) {
-        String cacheUserStr = cacheService.get(CacheBizTypeEn.USER_LOGIN_TOKEN, token);//正常版本
-        //String cacheUserStr = cacheService.get_error(CacheBizTypeEn.USER_LOGIN_TOKEN, token);//错误类型：改变调用方法名
-        //String cacheUserStr = cacheService.get(CacheBizTypeEn.USER_LOGIN_TOKEN, null);//错误类型：改变调用方法参数
-        //String cacheUserStr = null;//错误类型：改变方法调用链
-        CheckUtil.isEmpty(cacheUserStr, ErrorCodeEn.USER_TOKEN_INVALID);//错误类型：condition change(isEmpty里面)
+        String cacheUserStr = cacheService.get(CacheBizTypeEn.USER_LOGIN_TOKEN, token);//normal
+        //String cacheUserStr = cacheService.get_error(CacheBizTypeEn.USER_LOGIN_TOKEN, token);//call change
+        //String cacheUserStr = cacheService.get(CacheBizTypeEn.USER_LOGIN_TOKEN, null);//argument change
+        //String cacheUserStr = null;//chain change
+        CheckUtil.isEmpty(cacheUserStr, ErrorCodeEn.USER_TOKEN_INVALID);//condition change
 
         return UserTransfer.toUserInfoResponse(JSON.parseObject(cacheUserStr, User.class));
     }
@@ -150,28 +150,26 @@ public class UserManager extends AbstractLoginManager {
     }
 
     /**
-     * 用户注册
+     * User registration
      * @param request
      */
     @Transactional
     public String register(UserRegisterRequest request) {
-        // 判断邮箱是否已经被注册
+        // Check whether the email address has been registered
         User user = userRepository.getByEmail(request.getEmail());
         CheckUtil.isNotEmpty(user, ErrorCodeEn.USER_REGISTER_EMAIL_IS_EXIST);
 
         User registerUser = UserTransfer.toUser(request);
 
-        // 保存注册用户
+        // Save the registered user
         userRepository.save(registerUser);
 
-        // 触发保存操作日志事件
-//        EventBus.emit(EventBus.Topic.USER_REGISTER, registerUser);
 
         return login(registerUser, request);
     }
 
     /**
-     * 登出
+     * logout
      * @param request
      */
     public void logout(UserTokenLogoutRequest request) {
@@ -180,12 +178,10 @@ public class UserManager extends AbstractLoginManager {
             return;
         }
         OptLog.createUserLogoutRecordLog(user.getId(), JSON.toJSONString(request));
-        // 触发保存操作日志事件
-//        EventBus.emit(EventBus.Topic.USER_LOGOUT, OptLog.createUserLogoutRecordLog(user.getId(), JSON.toJSONString(request)));
     }
 
     /**
-     * 用户更新基本信息
+     * The user updates basic information. Procedure
      * @param request
      */
     @IsLogin
@@ -200,14 +196,14 @@ public class UserManager extends AbstractLoginManager {
 
         User updateUser = UserTransfer.toUser(loginUser, request);
 
-        // 更新缓存中登录用户信息
+        // Update the login user information in the cache
         updateCacheUser(updateUser);
         userRepository.update(updateUser);
     }
 
 
     /**
-     * 用户更新头像
+     * Users update their profile pictures
      */
     @IsLogin
     @Transactional
@@ -219,12 +215,12 @@ public class UserManager extends AbstractLoginManager {
             CheckUtil.isFalse(user.getId().equals(loginUser.getId()), ErrorCodeEn.USER_REGISTER_EMAIL_IS_EXIST);
         }*/
         loginUser.setAvatar(linkFilenameData);
-        // 更新缓存中登录用户信息
+        // Update the login user information in the cache
         updateCacheUser(loginUser);
         userRepository.update(loginUser);
     }
     /**
-     * 更新登录密码
+     * Updating the Login Password
      * @param request
      */
     @IsLogin
@@ -235,7 +231,7 @@ public class UserManager extends AbstractLoginManager {
 
         user.setPassword(StringUtil.md5UserPassword(request.getNewPassword()));
 
-        // 更新缓存中登录用户信息
+        // Update the login user information in the cache
         updateCacheUser(user);
         userRepository.update(user);
     }
@@ -294,11 +290,11 @@ public class UserManager extends AbstractLoginManager {
     public void updateRole(AdminBooleanRequest booleanRequest) {
         User user = userRepository.get(booleanRequest.getId());
 
-//        User user = userRepository.got(booleanRequest.getId());错误类型：callchange
+//        User user = userRepository.got(booleanRequest.getId());call change
         CheckUtil.isEmpty(user, ErrorCodeEn.USER_NOT_EXIST);
 
         user.setRole(booleanRequest.getIs() ? UserRoleEn.ADMIN : UserRoleEn.USER);
         userRepository.update(user);
-//        userRepository.update(null);错误类型：修改参数
+//        userRepository.update(null);argument change
     }
 }

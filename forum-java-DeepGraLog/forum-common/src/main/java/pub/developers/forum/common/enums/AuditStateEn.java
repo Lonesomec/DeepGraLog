@@ -14,9 +14,9 @@ public enum AuditStateEn {
     /**
      *
      */
-    WAIT("WAIT", "待审核"),
-    PASS("PASS", "审核通过"),
-    REJECT("REJECT", "审核拒绝"),
+    WAIT("WAIT", "wait to audit"),
+    PASS("PASS", "passed"),
+    REJECT("REJECT", "no pass"),
     ;
 
     private String value;

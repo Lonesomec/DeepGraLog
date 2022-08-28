@@ -10,17 +10,17 @@ import pub.developers.forum.api.response.user.UserInfoResponse;
 public class WebContext {
 
     /**
-     * 当前登录用户
+     * Current Login User
      */
     private static final ThreadLocal<UserInfoResponse> CURRENT_LOGIN_USER = new ThreadLocal<>();
 
     /**
-     * 当前登录用户登录凭证 sid
+     * Current login user credentials SID
      */
     private static final ThreadLocal<String> CURRENT_USER_LOGIN_SID = new ThreadLocal<>();
 
     /**
-     * 保存当前登录用户
+     * Save the current login user
      * @param loginUser
      */
     public static void setCurrentUser(UserInfoResponse loginUser) {
@@ -28,7 +28,7 @@ public class WebContext {
     }
 
     /**
-     * 获取当前登录用户
+     * Get the current login user
      * @return
      */
     public static UserInfoResponse getCurrentUser() {
@@ -36,7 +36,7 @@ public class WebContext {
     }
 
     /**
-     * 保存当前登录凭证
+     * Save the current login credentials
      * @param sid
      */
     public static void setCurrentSid(String sid) {
@@ -44,7 +44,7 @@ public class WebContext {
     }
 
     /**
-     * 获取当前登录凭证
+     * Get the current login credentials
      * @return
      */
     public static String getCurrentSid() {

@@ -59,7 +59,7 @@ public class MessageManager {
         //PageResult<Message> pageResult = messageRepository.page(PageUtil.buildPageRequest(pageRequestModel, message));
         PageResult<Message> pageResult= null;//chain change
         //PageResult<Message> pageResult = messageRepository.page(PageUtil.buildPageRequest(null, message));//argument change
-        //PageResult<Message> pageResult = messageRepository.pages(PageUtil.buildPageRequest(pageRequestModel, message));//错误类型：call change
+        //PageResult<Message> pageResult = messageRepository.pages(PageUtil.buildPageRequest(pageRequestModel, message));//call change
         if (ObjectUtils.isEmpty(pageResult.getList())) {
             return PageResponseModel.build(pageResult.getTotal(), pageResult.getSize(), new ArrayList<>());
         }
@@ -94,13 +94,13 @@ public class MessageManager {
     @IsLogin
     public void markIsRead(Long messageId) {
         Message message = messageRepository.get(messageId);
-//        Message message = messageRepository.got(messageId);//错误类型:call change
+//        Message message = messageRepository.got(messageId);//call change
         CheckUtil.isEmpty(message, ErrorCodeEn.MESSAGE_NOT_EXIST);
         CheckUtil.isFalse(LoginUserContext.getUser().getId().toString().equals(message.getReceiver().getId()), ErrorCodeEn.MESSAGE_NOT_EXIST);
 
         message.setRead(MessageReadEn.YES);
         messageRepository.updateToRead(message);
-//        messageRepository.updateToRead(null);//错误类型：修改参数
+//        messageRepository.updateToRead(null);//argument change
     }
 
     @IsLogin

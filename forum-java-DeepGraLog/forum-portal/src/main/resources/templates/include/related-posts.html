@@ -3,8 +3,7 @@
 
 <div th:fragment="related_posts(relatedPosts)" th:if="${!#lists.isEmpty(relatedPosts)}"
      class="posts-box" style="padding: 0;">
-  <!-- 文章列表 -->
-  <div class="card-header" style="background:#fff;"><span>推荐阅读</span></div>
+  <div class="card-header" style="background:#fff;"><span>recommended reading</span></div>
   <div class="list-group" style="border-bottom:none;">
     <div th:each="article : ${relatedPosts}" class="list-group-item list-group-item-action">
       <div>
@@ -12,7 +11,7 @@
           <a th:text="${article.title}"
              th:href="${(article.category == 'ARTICLE' ? '/article/' : '/faq/') + article.id}"
              target="_blank"
-             class="posts-list-title">又到一年一度双十一，你的购物车加满了吗？来对比一下李佳琦和薇娅直播间双十一清单，看哪些产品值得买</a>
+             class="posts-list-title">It's Double 11 again. Is your shopping cart full?</a>
         </div>
       </div>
 
@@ -25,7 +24,7 @@
         </small>
         <small class="text-muted posts-list-payload-item">
           <i data-feather="clock" style="width: 14px;height: 14px;"></i>&nbsp;
-          <span th:text="${article.createdAt}">3天前</span>
+          <span th:text="${article.createdAt}">Three days ago</span>
         </small>
         <small class="text-muted posts-list-payload-item">
           <i data-feather="eye" style="width: 14px;height: 14px;"></i>&nbsp;

@@ -11,14 +11,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum MessageTypeEn {
-    USER_REGISTER_NOTIFY_ADMIN("USER_REGISTER_NOTIFY_ADMIN", "新用户注册通知管理员"),
-    APPROVAL_ARTICLE("APPROVAL_ARTICLE", "点赞文章"),
-    COMMENT_ARTICLE("COMMENT_ARTICLE", "评论文章"),
+    USER_REGISTER_NOTIFY_ADMIN("USER_REGISTER_NOTIFY_ADMIN", "New user registration notifies the administrator"),
+    APPROVAL_ARTICLE("APPROVAL_ARTICLE", "liked article"),
+    COMMENT_ARTICLE("COMMENT_ARTICLE", "reviewed article"),
 
-    APPROVAL_FAQ("APPROVAL_FAQ", "关注问答"),
-    COMMENT_FAQ("COMMENT_FAQ", "评论问答"),
+    APPROVAL_FAQ("APPROVAL_FAQ", "followed Q&A"),
+    COMMENT_FAQ("COMMENT_FAQ", "reviewed article"),
 
-    FOLLOW_USER("FOLLOW_USER", "用户关注"),
+    FOLLOW_USER("FOLLOW_USER", "followed user"),
     ;
     private String value;
     private String desc;

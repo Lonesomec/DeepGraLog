@@ -38,8 +38,8 @@ public class PostsPageQueryValue implements Serializable {
     private String markdownContent;
 
     /**
-     * 1 => 未解决
-     * 2 => 已解决
+     * 1 => Not solved
+     * 2 => solved
      */
     private Long commentId;
 

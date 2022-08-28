@@ -4,13 +4,12 @@
 <footer th:fragment="footer">
     <div class="foot custom-bg-color">
         <ul class="foot-link">
-            <!--<li><a class="text-reset" href="javascript:;">在线人数：<span th:text="${onlineUsers}"></span></a></li>-->
-            <!--<li><a class="text-reset" href="https://www.developers.pub/blog" target="_blank">博客文章</a></li>-->
-            <li><span th:text="${globalConfig.websiteRecord}">皖ICP备17014120号</span>
+            <li >
+<!--                <span th:text="${globalConfig.websiteRecord}">Anhui ICP number 17014120</span>-->
                 <a class="text-reset"
-                   href="https://www.developers.pub"
-                   th:text="'© 2016-' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' 杭州余杭顽强网络技术工作室'"
-                   target="_blank"> © 2016-2021 杭州余杭顽强网络技术工作室</a>
+                   href="https://github.com/Lonesomec/DeepGraLog"
+                   th:text="'© 2016-' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' Yuhang Tenacious Network Technology studio'"
+                   target="_blank"> © 2016-2021 Yuhang Tenacious Network Technology studio</a>
             </li>
         </ul>
     </div>
@@ -26,17 +25,16 @@
     <script>
         feather.replace();
 
-        // 登录
         $('#loginBtn').on('click', function () {
             var email = $('#loginEmail').val();
             if (!email) {
-                toastr.error('登录邮箱不能为空');
+                toastr.error('The login mailbox cannot be empty');
                 return false;
             }
 
             var password = $('#loginPassword').val();
             if (!password) {
-                toastr.error('登录密码不能为空');
+                toastr.error('The login password cannot be empty');
                 return false;
             }
 
@@ -53,38 +51,38 @@
         $('#registerBtn').on('click', function () {
             var email = $('#registerEmail').val();
             if (!email) {
-                toastr.error('注册邮箱不能为空');
+                toastr.error('The registration mailbox cannot be empty');
                 return;
             }
             if (email.indexOf('@') < 0) {
-                toastr.error('请输入正确的邮箱格式');
+                toastr.error('Please input the correct email format');
                 return;
             }
 
             var nickname = $('#registerNickname').val();
             if (!nickname) {
-                toastr.error('昵称不能为空');
+                toastr.error('The nickname cannot be empty');
                 return;
             }
             if (nickname.length > 10) {
-                toastr.error('昵称不能超过10个字符');
+                toastr.error('Nicknames cannot be longer than 10 characters');
                 return;
             }
 
             var password = $('#registerPassword').val();
             if (!password) {
-                toastr.error('注册密码不能为空');
+                toastr.error('The registration password cannot be empty');
                 return;
             }
 
             var password2 = $('#registerPassword2').val();
             if (!password2) {
-                toastr.error('二次确认密码不能为空');
+                toastr.error('The password for double confirmation cannot be empty');
                 return;
             }
 
             if (password2 !== password) {
-                toastr.error('二次密码不一致，请重新输入');
+                toastr.error('The two passwords are different. Please re-enter them');
                 return;
             }
 
@@ -101,13 +99,13 @@
         // 保存文章
         $('#updateArticleBtn').on('click', function () {
             saveArticle(function (data) {
-                toastr.success('保存成功');
+                toastr.success('Save successfully');
             });
         });
 
         $('#saveArticleBtn').on('click', function () {
             saveArticle(function (data) {
-                toastr.success('发表成功');
+                toastr.success('Published successfully');
                 location.href = '/';
             });
         });
@@ -115,29 +113,29 @@
         var saveArticle = function(callback) {
             var type = $('#type').val();
             if (!type) {
-                toastr.error('类别不能为空');
+                toastr.error('The category cannot be empty');
                 return;
             }
 
             var title = $('#title').val();
             if (!title) {
-                toastr.error('标题不能为空');
+                toastr.error('The title cannot be empty');
                 return;
             }
             if (title.length > 40) {
-                toastr.error('标题不能超过40个字符');
+                toastr.error('Headings can be no longer than 40 characters');
                 return;
             }
 
             var content = $('#content').val();
             if (!content) {
-                toastr.error('内容不能为空');
+                toastr.error('The content cannot be empty');
                 return;
             }
 
             var tags = $('#tags').val();
             if (!tags) {
-                toastr.error('标签不能为空');
+                toastr.error('The label cannot be empty');
                 return;
             }
 
@@ -159,13 +157,13 @@
         // 提交问答
         $('#updateFaqBtn').on('click', function () {
             saveFaq(function (data) {
-                toastr.success('保存成功');
+                toastr.success('Save success');
             });
         });
 
         $('#saveFaqBtn').on('click', function () {
             saveFaq(function (data) {
-                toastr.success('提交成功');
+                toastr.success('Submitted successfully');
                 location.href = '/faq';
             });
         });
@@ -173,23 +171,23 @@
         var saveFaq = function (callback) {
             var title = $('#title').val();
             if (!title) {
-                toastr.error('标题不能为空');
+                toastr.error('The title cannot be empty');
                 return;
             }
             if (title.length > 50) {
-                toastr.error('标题不能超过50个字符');
+                toastr.error('The title cannot exceed 50 characters');
                 return;
             }
 
             var content = $('#content').val();
             if (!content) {
-                toastr.error('内容不能为空');
+                toastr.error('The content cannot be empty');
                 return;
             }
 
             var tags = $('#tags').val();
             if (!tags) {
-                toastr.error('标签不能为空');
+                toastr.error('The label cannot be empty');
                 return;
             }
 
@@ -217,7 +215,7 @@
                 }
             }
             if (tagIdsStr.length > 5) {
-                toastr.error("标签最多可选择 5 个")
+                toastr.error("A maximum of five labels can be selected")
             } else {
                 $('#tags').val(tagIdsStr.join(','));
                 $('#tagInput').val(tagNamesStr.join(','));
@@ -232,15 +230,15 @@
                     post('/user-rest/follow/' + this.dataset.followed, {}, function (data) {
                         thiz.dataset.hasFollow = 'true';
                         followBtn.attr('class', followBtn.attr('class').replaceAll('btn-primary', 'btn-secondary'));
-                        followBtn.html('取消关注');
-                        toastr.success("关注成功");
+                        followBtn.html('cancel follow');
+                        toastr.success("Follow success");
                     })
                 } else {
                     post('/user-rest/cancel-follow/' + this.dataset.followed, {}, function (data) {
                         thiz.dataset.hasFollow = 'false';
                         followBtn.attr('class', followBtn.attr('class').replaceAll('btn-secondary', 'btn-primary'));
-                        followBtn.html('关注 TA');
-                        toastr.success("取消关注成功");
+                        followBtn.html('Follow him/her');
+                        toastr.success("Unfollow successfully");
                     })
                 }
             });
@@ -272,7 +270,7 @@
                         callback();
                     }
                 }
-            } else { // 其他浏览器
+            } else {
                 secScript.onload = function () {
                     callback();
                 }

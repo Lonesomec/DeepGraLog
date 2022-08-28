@@ -19,17 +19,17 @@ import java.io.Serializable;
 public class ArticleAddTypeRequest implements Serializable {
 
     /**
-     * 名称
+     * name
      */
     private String name;
 
     /**
-     * 描述
+     * description
      */
     private String description;
 
     /**
-     * 作用域
+     * scope
      */
     private String scope;
 

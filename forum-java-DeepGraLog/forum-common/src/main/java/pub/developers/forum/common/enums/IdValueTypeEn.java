@@ -11,9 +11,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum IdValueTypeEn {
-    SYSTEM("SYSTEM", "系统"),
-    USER_ID("USER_ID", "用户ID"),
-    EMAIL("MAIL", "邮箱"),
+    SYSTEM("SYSTEM", "system"),
+    USER_ID("USER_ID", "userID"),
+    EMAIL("MAIL", "Email"),
     ;
     private String value;
     private String desc;

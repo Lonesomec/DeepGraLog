@@ -15,7 +15,7 @@ public class RequestContext {
     private static final ThreadLocal<String> REQUEST_TRACE_ID = new ThreadLocal<>();
 
     /**
-     * 为当前请求生成 trade id
+     * Generate the trade ID for the current request
      * @param
      */
     public static void init() {
@@ -25,7 +25,7 @@ public class RequestContext {
     }
 
     /**
-     * 获取当前请求 trade id
+     * Gets the current request trade ID
      * @return
      */
     public static String getTraceId() {

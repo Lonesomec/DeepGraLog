@@ -62,7 +62,7 @@ public class GlobalViewInterceptor extends HandlerInterceptorAdapter {
         try {
             UserInfoResponse loginUserInfo = WebContext.getCurrentUser();
 
-            // 重定向请求不需要添加
+            // Redirection requests do not need to be added
             if (!ObjectUtils.isEmpty(modelAndView) && !modelAndView.getViewName().startsWith(WebConst.REQUEST_REDIRECT_PREFIX)) {
                 if (!ObjectUtils.isEmpty(loginUserInfo)) {
                     request.setAttribute(Constant.REQUEST_HEADER_TOKEN_KEY, WebUtil.cookieGetSid(request));

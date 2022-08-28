@@ -26,7 +26,6 @@ public class PostsDeleteListener extends EventBus.EventHandler<BasePosts> {
 
     @Override
     public void onMessage(BasePosts basePosts) {
-        // 文章类别引用数减
         if (PostsCategoryEn.ARTICLE.equals(basePosts.getCategory())) {
             articleTypeRepository.decreaseRefCount(basePosts.getTypeId());
         }

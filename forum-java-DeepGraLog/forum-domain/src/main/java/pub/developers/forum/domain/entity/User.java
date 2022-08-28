@@ -23,47 +23,47 @@ import java.util.Date;
 public class User extends BaseEntity {
 
     /**
-     * 角色
+     *
      */
     private UserRoleEn role;
 
     /**
-     * 状态
+     *
      */
     private UserStateEn state;
 
     /**
-     * 用户名
+     *
      */
     private String nickname;
 
     /**
-     * 性别
+     *
      */
     private UserSexEn sex;
 
     /**
-     * 来源
+     *
      */
     private UserSourceEn source;
 
     /**
-     * 头像
+     *
      */
     private String avatar;
 
     /**
-     * 邮箱
+     *
      */
     private String email;
 
     /**
-     * 密码
+     *
      */
     private String password;
 
     /**
-     * 签名
+     *
      */
     private String signature;
 
@@ -73,7 +73,7 @@ public class User extends BaseEntity {
     private JSONObject githubUser;
 
     /**
-     * 最后登录时间
+     *
      */
     private Date lastLoginTime;
 

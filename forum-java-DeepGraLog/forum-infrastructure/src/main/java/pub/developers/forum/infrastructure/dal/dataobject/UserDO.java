@@ -19,57 +19,57 @@ import java.util.Date;
 public class UserDO extends BaseDO {
 
     /**
-     * 角色
+     *
      */
     private String role;
 
     /**
-     * 状态
+     *
      */
     private String state;
 
     /**
-     * 用户名
+     *
      */
     private String nickname;
 
     /**
-     * 性别
+     *
      */
     private String sex;
 
     /**
-     * 来源
+     *
      */
     private String source;
 
     /**
-     * 头像
+     *
      */
     private String avatar;
 
     /**
-     * 邮箱
+     *
      */
     private String email;
 
     /**
-     * 密码
+     *
      */
     private String password;
 
     /**
-     * 签名
+     *
      */
     private String signature;
 
     /**
-     * 扩展信息
+     * extended information
      */
     private String ext;
 
     /**
-     * 最后登录时间
+     *
      */
     private Date lastLoginTime;
 

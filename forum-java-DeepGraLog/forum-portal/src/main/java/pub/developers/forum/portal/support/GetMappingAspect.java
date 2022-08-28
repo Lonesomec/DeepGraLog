@@ -33,7 +33,7 @@ public class GetMappingAspect {
         } catch (BizException bizException) {
             toastMessage = bizException.getMessage();
         } catch (Exception e) {
-            toastMessage = "未知异常";
+            toastMessage = "unknown exception";
         }
 
         request.setAttribute("toast", toastMessage);

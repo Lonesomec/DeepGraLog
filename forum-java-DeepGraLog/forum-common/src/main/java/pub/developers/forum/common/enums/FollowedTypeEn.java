@@ -11,8 +11,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum FollowedTypeEn {
-    USER("USER", "用户"),
-    POSTS("POSTS", "帖子"),
+    USER("USER", "user"),
+    POSTS("POSTS", "post"),
     ;
     private String value;
     private String desc;

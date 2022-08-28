@@ -17,7 +17,7 @@ public class SafesUtil {
     }
 
     /**
-     * 返回空List对象
+     * Return an empty List
      *
      * @param value
      * @return
@@ -27,7 +27,7 @@ public class SafesUtil {
     }
 
     /**
-     * 返回空Set对象
+     * Returns an empty Set
      *
      * @param value
      * @param <T>
@@ -38,7 +38,7 @@ public class SafesUtil {
     }
 
     /**
-     * 返回空Map对象
+     * Returns an empty Map
      *
      * @param value
      * @param <K>

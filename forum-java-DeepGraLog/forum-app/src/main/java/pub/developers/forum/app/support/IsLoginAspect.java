@@ -20,8 +20,8 @@ import pub.developers.forum.domain.entity.User;
 public class IsLoginAspect {
 
     /**
-     * 获取缓存的登录用户信息，
-     * 判断当前登录用户角色权限，并将登录用户设置到请求线程上下文中供业务处理时直接获取
+     * Get cached logon user information
+     * Determines the role rights of the current login user and sets the login user to the context of the request thread for service processing
      * @param joinPoint
      * @param isLogin
      * @return
@@ -34,7 +34,7 @@ public class IsLoginAspect {
 
         UserRoleEn userRoleEn = loginUser.getRole();
 
-        // 超级管理员
+        // super administrator
         if (UserRoleEn.SUPER_ADMIN.equals(isLogin.role())) {
             if (UserRoleEn.SUPER_ADMIN.equals(userRoleEn)) {
                 return joinPoint.proceed();
@@ -42,7 +42,7 @@ public class IsLoginAspect {
             throw new BizException(ErrorCodeEn.COMMON_TOKEN_NO_PERMISSION);
         }
 
-        // 管理员
+        // administrator
         else if (UserRoleEn.ADMIN.equals(isLogin.role())) {
             if (UserRoleEn.SUPER_ADMIN.equals(userRoleEn)
                     || UserRoleEn.ADMIN.equals(userRoleEn)) {
@@ -51,7 +51,7 @@ public class IsLoginAspect {
             throw new BizException(ErrorCodeEn.COMMON_TOKEN_NO_PERMISSION);
         }
 
-        // 用户
+        // user
         return joinPoint.proceed();
     }
 

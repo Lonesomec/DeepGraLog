@@ -55,8 +55,8 @@ public class UserController {
     @Resource
     private GlobalViewConfig globalViewConfig;
 
-    private static final String DOMAIN_ARTICLE_NAME = "文章";
-    private static final String DOMAIN_FAQ_NAME = "问答";
+    private static final String DOMAIN_ARTICLE_NAME = "Article";
+    private static final String DOMAIN_FAQ_NAME = "Q&A";
 
     @GetMapping("/{uid}")
     public String index(@PathVariable("uid") Long uid, UserRequest userRequest, HttpServletRequest request, Model model) {
@@ -68,7 +68,7 @@ public class UserController {
         } else if (DOMAIN_FAQ_NAME.equals(userRequest.getType())) {
             faqs(uid, userRequest, model);
         } else {
-            throw ViewException.build("类别不存在");
+            throw ViewException.build("the type does not exist");
         }
 
         ResultModel<UserInfoResponse> resultModel = userApiService.info(uid);
@@ -96,7 +96,7 @@ public class UserController {
             return page;
         }
 
-        // 登出
+        // logout
         UserTokenLogoutRequest logoutRequest = UserTokenLogoutRequest.builder()
                 .token(sid)
                 .build();
@@ -104,7 +104,7 @@ public class UserController {
         logoutRequest.setUa(WebUtil.requestUa(request));
         userApiService.logout(logoutRequest);
 
-        // 删除 cookie 中登录凭证
+        // Delete login credentials from cookie
         WebUtil.cookieDelSid(response);
 
         return page;
@@ -205,7 +205,7 @@ public class UserController {
         for (int i = 0; i < 5; i ++) {
             Map<String, Object> posts = new HashMap<>();
             posts.put("id", i);
-            posts.put("title", "这里是mock的测试问题标题，后期需要从后端接口查询真实数据" + i);
+            posts.put("title", "Here is the title of the mock's test question, which you later need to query for real data from the back-end interface" + i);
             posts.put("createdAt", new Date());
             postsList.add(posts);
         }

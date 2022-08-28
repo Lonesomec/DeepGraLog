@@ -46,7 +46,7 @@ public class UserFoodRepositoryImpl extends AbstractPostsRepository implements U
 
                 userFoodDAO.insert(userFoodDO);
             } catch (Exception e) {
-                // 唯一健冲突忽略
+                // Unique key conflicts are ignored
             }
         });
     }

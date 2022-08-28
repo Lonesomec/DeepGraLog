@@ -22,39 +22,39 @@ public class TagPageResponse implements Serializable {
     private Long id;
 
     /**
-     * 创建时间
+     * create time
      */
     private String createAt;
 
     /**
-     * 更新时间
+     * update time
      */
     private String updateAt;
 
     private String groupName;
 
     /**
-     * 名称
+     * name
      */
     private String name;
 
     /**
-     * 描述
+     * description
      */
     private String description;
 
     /**
-     * 引用统计
+     * reference statistic
      */
     private Long refCount;
 
     /**
-     * 创建人
+     * creator ID
      */
     private Long creatorId;
 
     /**
-     * 审核状态
+     * audit state
      */
     private String auditState;
 

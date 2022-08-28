@@ -41,7 +41,7 @@ import java.util.*;
 @RequestMapping("/")
 public class IndexController {
 
-    private static final String ALL_TYPE_NAME = "全部文章";
+    private static final String ALL_TYPE_NAME = "All articles";
 
     @Resource
     private ArticleApiService articleApiService;
@@ -88,7 +88,6 @@ public class IndexController {
         model.addAttribute("typeList", typeList(request));
         model.addAttribute("usedTags", webUtil.usedTags());
 
-        // 文章列表请求参数
         ResultModel<PageResponseModel<ArticleUserPageResponse>> resultModel = userPage(request);
         if (resultModel.getSuccess() && !ObjectUtils.isEmpty(resultModel.getData())) {
             PageResponseModel<ArticleUserPageResponse> pageResponseModel = resultModel.getData();

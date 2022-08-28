@@ -65,10 +65,10 @@ public class CommentManager {
             }
         }
 
-        // 保存
+        // save
         commentRepository.save(comment);
 
-        // 增加帖子评论数
+        // increase the number of comments on the post
         postsRepository.increaseComments(posts.getId(), posts.getUpdateAt());
 
         Map<String, Object> msg = new HashMap<>();

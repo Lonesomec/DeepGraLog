@@ -33,22 +33,22 @@ public class DbCacheServiceImpl implements CacheService {
     private CacheDAO cacheDAO;
 
     /**
-     * 全部缓存
+     *
      */
     private static final Map<String, StringValue> ALL_CACHE = new ConcurrentHashMap<>();
 
     /**
-     * 更新缓存
+     *
      */
     private static final Set<String> MODIFY_KEYS = new HashSet<>();
 
     /**
-     * 新增缓存
+     *
      */
     private static final Set<String> NEW_KEYS = new HashSet<>();
 
     /**
-     * 删除缓存
+     *
      */
     private static final Set<String> DELETE_KEYS = new HashSet<>();
 
@@ -117,7 +117,6 @@ public class DbCacheServiceImpl implements CacheService {
         return Boolean.TRUE;
     }
 
-    // -------------------------------- 缓存更新操作
 
     @PostConstruct
     public void postConstruct() {
@@ -133,8 +132,8 @@ public class DbCacheServiceImpl implements CacheService {
     }
 
     /**
-     * 秒 分 小时 月份中的日期 月份 星期中的日期 年份
-     * 0 0/20 * * * * *  从 零分零秒开始 每隔20分钟 执行一次
+     *
+     *
      */
     @Scheduled(cron = "0/5 * * * * ? ")
     public void task() {
@@ -148,10 +147,10 @@ public class DbCacheServiceImpl implements CacheService {
     }
 
     /**
-     * 刷新缓存到磁盘
+     *
      */
     private void persistence() {
-        // 删除 DELETE_KEYS
+        // DELETE_KEYS
         if (!CollectionUtils.isEmpty(DELETE_KEYS)) {
             cacheDAO.batchDeleteByKeys(DELETE_KEYS);
             DELETE_KEYS.clear();

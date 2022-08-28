@@ -14,9 +14,9 @@ public enum OptLogTypeEn {
     /**
      *
      */
-    USER_LOGIN("USER_LOGIN", "用户登录记录"),
-    USER_LOGOUT("USER_LOGOUT", "用户登出记录"),
-    USER_REGISTER("USER_REGISTER", "用户注册记录"),
+    USER_LOGIN("USER_LOGIN", "User login Record"),
+    USER_LOGOUT("USER_LOGOUT", "User logout Record"),
+    USER_REGISTER("USER_REGISTER", "User Registration Record"),
     ;
 
     private String value;

@@ -16,19 +16,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CommentDO extends BaseDO {
 
-    /**评论人ID*/
+
     private Long userId;
 
-    /**二次评论人ID*/
+
     private Long replyId;
 
-    /**二次评论人ID*/
+
     private Long replyReplyId;
 
-    /**帖子ID*/
+
     private Long postsId;
 
-    /**内容*/
+
     private String content;
 
 }

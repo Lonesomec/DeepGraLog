@@ -10,17 +10,17 @@ import pub.developers.forum.domain.entity.User;
 public class LoginUserContext {
 
     /**
-     * 当前登录用户
+     * Current Login User
      */
     private static final ThreadLocal<User> CURRENT_LOGIN_USER = new ThreadLocal<>();
 
     /**
-     * 当前登录用户登录凭证 token
+     * Token of the current login user
      */
     private static final ThreadLocal<String> CURRENT_USER_LOGIN_TOKEN = new ThreadLocal<>();
 
     /**
-     * 保存当前登录用户
+     * Save the current login user
      * @param loginUser
      */
     public static void setUser(User loginUser) {
@@ -28,7 +28,7 @@ public class LoginUserContext {
     }
 
     /**
-     * 获取当前登录用户
+     * Get the current login user
      * @return
      */
     public static User getUser() {
@@ -36,7 +36,7 @@ public class LoginUserContext {
     }
 
     /**
-     * 保存当前登录凭证
+     * Save the current login credentials
      * @param token
      */
     public static void setToken(String token) {
@@ -44,7 +44,7 @@ public class LoginUserContext {
     }
 
     /**
-     * 获取当前登录凭证
+     * Gets the current login credentials
      * @return
      */
     public static String getToken() {

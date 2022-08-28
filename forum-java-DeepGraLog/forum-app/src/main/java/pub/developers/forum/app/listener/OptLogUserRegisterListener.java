@@ -27,7 +27,7 @@ public class OptLogUserRegisterListener extends EventBus.EventHandler<User> {
     @Override
     public void onMessage(User user) {
 
-        // 保存操作记录
+        // Save operation Records
         optLogRepository.save(OptLog.createUserRegisterRecordLog(user.getId(), user));
     }
 }

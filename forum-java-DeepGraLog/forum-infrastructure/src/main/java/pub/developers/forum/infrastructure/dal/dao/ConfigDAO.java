@@ -15,33 +15,33 @@ import java.util.Set;
 public interface ConfigDAO {
 
     /**
-     * 插入
+     *
      * @param configDO
      */
     void insert(ConfigDO configDO);
 
     /**
-     * 更新
+     *
      * @param configDO
      */
     void update(ConfigDO configDO);
 
     /**
-     * 查询
+     *
      * @param id
      * @return
      */
     ConfigDO get(Long id);
 
     /**
-     * 查询
+     *
      * @param configDO
      * @return
      */
     List<ConfigDO> query(ConfigDO configDO);
 
     /**
-     * 查询可用
+     *
      * @param types
      * @param nowDate
      * @return

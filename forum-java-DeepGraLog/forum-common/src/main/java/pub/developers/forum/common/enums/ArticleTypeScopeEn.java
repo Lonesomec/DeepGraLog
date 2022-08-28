@@ -14,8 +14,8 @@ public enum ArticleTypeScopeEn {
     /**
      *
      */
-    OFFICIAL("OFFICIAL", "官方"),
-    USER("USER", "用户"),
+    OFFICIAL("OFFICIAL", "official"),
+    USER("USER", "user"),
     ;
     private String value;
     private String desc;

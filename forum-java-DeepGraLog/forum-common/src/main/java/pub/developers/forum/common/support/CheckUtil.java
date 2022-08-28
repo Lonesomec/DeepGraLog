@@ -17,7 +17,7 @@ public class CheckUtil {
     }
 
     /**
-     * 检查请求路径参数是否为空
+     * Check whether the request path parameter is empty
      *
      * @param o
      */
@@ -29,7 +29,7 @@ public class CheckUtil {
     }
 
     /**
-     * 检查请求路径参数是否为空
+     * Check whether the request path parameter is empty
      *
      * @param o
      */
@@ -41,17 +41,17 @@ public class CheckUtil {
     }
 
     /**
-     * @param o         被检查的对象
-     * @param errorCode 抛出的异常信息
-     * @desc 检查是否为空，为空则报异常
+     * @param o         examined object
+     * @param errorCode exception
+     * @desc Check whether it is empty. If it is empty, an exception is reported
      */
     public static void isEmpty(Object o, ErrorCodeEn errorCode) {
         if (ObjectUtils.isEmpty(o)) {
             throw new BizException(errorCode);
-        }//正常版本
+        }//normal
 //        if (!ObjectUtils.isEmpty(o)) {
 //            throw new BizException(errorCode);
-//        }//错误类型：if-condition change
+//        }//condition change
     }
 
     public static void isNotEmpty(Object o, ErrorCodeEn errorCode) {

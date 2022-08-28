@@ -18,7 +18,7 @@ import org.springframework.beans.BeanUtils;
 public class Faq extends BasePosts {
 
     /**
-     * 最佳答案 ID
+     * excellent Q&A ID
      */
     private Long solutionId;
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="include/header :: head(~{::title}, ~{}, ~{})">
-    <title th:text="${user.nickname + ' - ' + globalConfig.websiteName}">个人首页 - 开发者客栈</title>
+    <title th:text="${user.nickname + ' - ' + globalConfig.websiteName}">Personal homepage - Developer Inn</title>
 </div>
 <body>
 <div th:replace="include/navbar :: header"></div>
@@ -27,7 +27,7 @@
                             <img class="header_hover"
                                  id="header_hover"
                                  src="https://cdn.cnvtk.com/header_hover.png"
-                                 alt="上传图像"
+                                 alt="Upload the image"
                                  data-target="#updateHeadImgModal"
                                  data-toggle="modal"
                                  style="display: none;position: absolute;width: 80px;height: 80px;border: 1px solid #ddd;border-radius: 50%;"
@@ -36,30 +36,30 @@
                     </div>
                     <div th:text="${user.nickname}"
                          class="text-center"
-                         style="height: 43px;font-size: 18px;font-weight: 500;line-height: 1.5;">阿崔</div>
+                         style="height: 43px;font-size: 18px;font-weight: 500;line-height: 1.5;">Bob</div>
                     <div style="text-align: center;">
                         <button id="followBtn"
                                 th:data-target="${isLogin ? '' : '#loginModal'}"
                                 th:data-toggle="${isLogin ? '' : 'modal'}"
                                 th:data-has-follow="${hasFollow}"
                                 th:data-followed="${user.id}"
-                                th:text="${hasFollow ? '取消关注' : '关注 TA'}"
-                                th:class="${'btn btn-sm ' + (hasFollow ? 'btn-secondary' : 'btn-primary')}">关注 TA</button>
+                                th:text="${hasFollow ? 'Cancel follow' : 'Follow him/her'}"
+                                th:class="${'btn btn-sm ' + (hasFollow ? 'btn-secondary' : 'btn-primary')}">Follow him/her</button>
                         <button th:if="${isLogin && user.id == loginUser.id}"
                                 data-target="#updateModal"
                                 data-toggle="modal"
                                 type="button"
-                                class="btn btn-outline-primary btn-sm user-edit-btn">编辑</button>
+                                class="btn btn-outline-primary btn-sm user-edit-btn">Edit</button>
                     </div>
                 </div>
                 <div class="col-8" style="padding: 0;">
                     <div class="user-info-date-box">
-                        <p style="margin-right: 40px;">注册日期：<span th:text="${#dates.format(user.createAt, 'yyyy-MM-dd')}">2020-10-1</span></p>
-                        <p>上次登录日期：<span th:text="${#dates.format(user.lastLoginTime, 'yyyy-MM-dd')}">2020-10-1</span></p>
+                        <p style="margin-right: 40px;">Registration date:<span th:text="${#dates.format(user.createAt, 'yyyy-MM-dd')}">2020-10-1</span></p>
+                        <p>Last login date:<span th:text="${#dates.format(user.lastLoginTime, 'yyyy-MM-dd')}">2020-10-1</span></p>
                     </div>
                     <div class="user-info-desc-box">
-                        <p style="margin-bottom: 8px;">个人简介</p>
-                        <p th:text="${user.signature}" style="font-size: 13px;line-height: 24px;">又是深夜了</p>
+                        <p style="margin-bottom: 8px;">Personal profile</p>
+                        <p th:text="${user.signature}" style="font-size: 13px;line-height: 24px;">It's late again</p>
                     </div>
                 </div>
             </div>
@@ -69,97 +69,97 @@
 
 <div th:replace="include/container :: container_both(~{::left}, ~{::right})">
     <left>
-        <!-- 类别筛选 -->
+
         <div th:replace="include/type-btns :: type_btns(${typeList})"></div>
 
-        <!-- 帖子列表 -->
+
         <div th:replace="include/article-list :: article_list(${articleList}, false, ${pager})"></div>
     </left>
     <right>
-        <!-- 关注 -->
-        <div th:replace="include/users-card :: users_card('关注', '#', ${followerList})"></div>
 
-        <!-- 粉丝 -->
-        <div th:replace="include/users-card :: users_card('粉丝', '#', ${fansList})"></div>
+        <div th:replace="include/users-card :: users_card('Follow', '#', ${followerList})"></div>
+
+
+        <div th:replace="include/users-card :: users_card('Fans', '#', ${fansList})"></div>
     </right>
 </div>
 
 
 
 
-<!-- 编辑个人信息 Modal -->
+
 <div th:if="${isLogin && user.id == loginUser.id}" class="modal fade" id="updateModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="updateModalDropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateModalDropLabel">更新个人信息</h5>
+                <h5 class="modal-title" id="updateModalDropLabel">Update Personal Information</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="userEmail">邮箱</label>
-                    <input th:value="${user.email}" id="userEmail" type="email" class="form-control" placeholder="登录邮箱（用于接收账号激活邮件）" />
+                    <label for="userEmail">Email</label>
+                    <input th:value="${user.email}" id="userEmail" type="email" class="form-control" placeholder="Login mailbox (used to receive account activation emails)" />
                 </div>
                 <div class="form-group">
-                    <label for="userNickname">昵称</label>
-                    <input id="userNickname" th:value="${user.nickname}" type="text" class="form-control" placeholder="给自己起个昵称呗（10字以内）" />
+                    <label for="userNickname">Nickname</label>
+                    <input id="userNickname" th:value="${user.nickname}" type="text" class="form-control" placeholder="Give yourself a nickname (10 words or less)" />
                 </div>
                 <div class="form-group">
-                    <label for="userSignature">个人简介</label>
+                    <label for="userSignature">Personal profile</label>
                     <textarea id="userSignature"
                               rows="3"
                               th:text="${user.signature}"
                               class="form-control"
-                              placeholder="介绍下自己吧（50字以内）"></textarea>
+                              placeholder="Introduce yourself (50 words or less)"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="updateUserBtn" type="button" class="btn btn-primary">更新</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#updatePwdModal">更新登录密码</button>
+                <button id="updateUserBtn" type="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#updatePwdModal">Update login password</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 更新密码 Modal -->
+
 <div th:if="${isLogin && user.id == loginUser.id}" class="modal fade" id="updatePwdModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="updatePwdModalDropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updatePwdModalDropLabel">更新登录密码</h5>
+                <h5 class="modal-title" id="updatePwdModalDropLabel">Update login password</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="oldPwd">旧密码</label>
-                    <input id="oldPwd" type="password" class="form-control" placeholder="请输入旧密码" />
+                    <label for="oldPwd">old password</label>
+                    <input id="oldPwd" type="password" class="form-control" placeholder="Please input old password" />
                 </div>
                 <div class="form-group">
-                    <label for="newPwd">新密码</label>
-                    <input id="newPwd" type="password" class="form-control" placeholder="请输入新密码" />
+                    <label for="newPwd">new password</label>
+                    <input id="newPwd" type="password" class="form-control" placeholder="Please input new password" />
                 </div>
                 <div class="form-group">
-                    <label for="newPwd2">确认新密码</label>
-                    <input id="newPwd2" type="password" class="form-control" placeholder="请再次输入新密码" />
+                    <label for="newPwd2">Confirm the new password</label>
+                    <input id="newPwd2" type="password" class="form-control" placeholder="Please input new password again" />
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="updatePwdBtn" type="button" class="btn btn-primary">更新</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#updateModal">更新个人信息</button>
+                <button id="updatePwdBtn" type="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#updateModal">Update Personal Information</button>
             </div>
         </div>
     </div>
 </div>
-<!-- 更新个人头像 Modal -->
+
 <div th:if="${isLogin && user.id == loginUser.id}" class="modal fade" id="updateHeadImgModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="updateHeadImgModalDropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateHeadImgModalDropLabel">更新个人头像</h5>
+                <h5 class="modal-title" id="updateHeadImgModalDropLabel">Update avatar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -168,7 +168,7 @@
                 <form action="/user-rest/update-headimg" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <input type="file" id="resumeFile"/><br/>
-                        <button id="uploadHeadimgBtn" type="button" >上传</button><br/>
+                        <button id="uploadHeadimgBtn" type="button" >upload</button><br/>
                     </div>
                 </form>
             </div>
@@ -180,7 +180,7 @@
 
 <div th:replace="include/footer :: footer"></div>
 <script>
-    //更新个人头像
+
     $('#uploadHeadimgBtn').on('click', function () {
         var formData = new FormData()
         formData.append('file', $('#resumeFile')[0].files[0])
@@ -200,31 +200,31 @@
         });
     });
 
-    // 更新个人信息
+
     $('#updateUserBtn').on('click', function () {
         var email = $('#userEmail').val();
         if (!email) {
-            toastr.error('邮箱不能为空');
+            toastr.error('The mailbox cannot be empty');
             return;
         }
         if (email.indexOf('@') < 0) {
-            toastr.error('请输入正确的邮箱格式');
+            toastr.error('Please enter the correct email format');
             return;
         }
 
         var nickname = $('#userNickname').val();
         if (!nickname) {
-            toastr.error('昵称不能为空');
+            toastr.error('Nicknames cannot be empty');
             return;
         }
         if (nickname.length > 10) {
-            toastr.error('昵称不能超过10个字符');
+            toastr.error('Nicknames cannot be longer than 10 characters');
             return;
         }
 
         var userSignature = $('#userSignature').val();
         if (!userSignature && userSignature.length > 50) {
-            toastr.error('个人简介不能超过50个字符');
+            toastr.error('Your profile should be no longer than 50 characters');
             return;
         }
 
@@ -233,34 +233,34 @@
             'nickname': nickname,
             'signature': userSignature
         }, function (data) {
-            toastr.success('更新成功');
+            toastr.success('Update success');
             setTimeout(function () {
                 location.reload();
             }, 500);
         });
     });
-    // 更新密码信息
+
     $('#updatePwdBtn').on('click', function () {
         var oldPwd = $('#oldPwd').val();
         if (!oldPwd) {
-            toastr.error('旧密码不能为空');
+            toastr.error('The old password cannot be empty');
             return;
         }
 
         var newPwd = $('#newPwd').val();
         if (!newPwd) {
-            toastr.error('新密码不能为空');
+            toastr.error('The new password cannot be empty');
             return;
         }
 
         var newPwd2 = $('#newPwd2').val();
         if (!newPwd2) {
-            toastr.error('确认新密码不能为空');
+            toastr.error('The new password cannot be empty');
             return;
         }
 
         if (newPwd !== newPwd2) {
-            toastr.error('新密码与确认密码不一致，请重新输入');
+            toastr.error('The new password is different from the confirmed password. Enter a new password');
             return;
         }
 
@@ -268,7 +268,7 @@
             'oldPassword': md5(oldPwd),
             'newPassword': md5(newPwd)
         }, function (data) {
-            toastr.success('更新成功');
+            toastr.success('Update success');
             setTimeout(function () {
                 location.reload();
             }, 500);

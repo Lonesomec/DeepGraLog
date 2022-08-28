@@ -15,9 +15,9 @@ public enum UserSexEn {
     /**
      *
      */
-    UNKNOWN("UNKNOWN", "未知"),
-    MAN("MAN", "男"),
-    WOMAN("WOMAN", "女"),
+    UNKNOWN("UNKNOWN", "unknown"),
+    MAN("MAN", "man"),
+    WOMAN("WOMAN", "woman"),
     ;
 
     private String value;

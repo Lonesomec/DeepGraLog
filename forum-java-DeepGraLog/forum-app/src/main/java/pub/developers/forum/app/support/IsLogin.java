@@ -15,7 +15,7 @@ import java.lang.annotation.*;
 public @interface IsLogin {
 
     /**
-     * 登录角色
+     * Login role
      * @return
      */
     UserRoleEn role() default UserRoleEn.USER;

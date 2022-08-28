@@ -483,18 +483,18 @@ public class WebUtil {
         Long timeout = System.currentTimeMillis() - date.getTime();
 
         if (timeout > ONE_MONTH_TIME) {
-            return new SimpleDateFormat("yyyy年MM月dd日").format(date);
+            return new SimpleDateFormat("yyyyyearMMmonthddday").format(date);
         } else if (timeout > ONE_DAY_TIME) {
-            return calculateTime(timeout, ONE_DAY_TIME) + "天前";
+            return calculateTime(timeout, ONE_DAY_TIME) + "days ago";
         } else if (timeout > ONE_HOUR_TIME) {
-            return calculateTime(timeout, ONE_HOUR_TIME) + "小时前";
+            return calculateTime(timeout, ONE_HOUR_TIME) + "hours ago";
         } else if (timeout > ONE_MINUTE_TIME) {
-            return calculateTime(timeout, ONE_MINUTE_TIME) + "分钟前";
+            return calculateTime(timeout, ONE_MINUTE_TIME) + "mins ago";
         } else if (timeout > ONE_SECOND_TIME) {
-            return calculateTime(timeout, ONE_SECOND_TIME) + "秒前";
+            return calculateTime(timeout, ONE_SECOND_TIME) + "secs ago";
         }
 
-        return new SimpleDateFormat("yyyy年MM月dd日").format(date);
+        return new SimpleDateFormat("yyyyyearMMmonthddday").format(date);
     }
 
     private static Long calculateTime(Long l1, Long l2) {

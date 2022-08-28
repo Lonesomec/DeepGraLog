@@ -27,7 +27,7 @@ public class PostsManager extends AbstractPostsManager {
     @IsLogin
     public PageResponseModel<PostsVO> pagePostsFood(PageRequestModel pageRequestModel) {
         PageResult<Posts> pageResult = userFoodRepository.pagePosts(PageUtil.buildPageRequest(pageRequestModel, LoginUserContext.getUser().getId()));
-//        PageResult<Posts> pageResult = userFoodRepository.pagePosts(null);//错误类型：修改参数
+//        PageResult<Posts> pageResult = userFoodRepository.pagePosts(null);//argument change
 
         return pagePostsVO(pageResult);
     }

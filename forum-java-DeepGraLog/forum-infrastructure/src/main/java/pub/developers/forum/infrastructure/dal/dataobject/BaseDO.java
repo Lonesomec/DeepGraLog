@@ -15,22 +15,22 @@ import java.util.Date;
 public class BaseDO implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
-     * 主键
+     *
      */
     private Long id;
 
     /**
-     * 是否删除
+     *
      */
     private Integer isDelete;
 
     /**
-     * 创建时间
+     *
      */
     private Date createAt;
 
     /**
-     * 更新时间
+     *
      */
     private Date updateAt;
 

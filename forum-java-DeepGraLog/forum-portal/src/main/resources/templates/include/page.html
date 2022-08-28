@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
-<!-- 分页 -->
+
 <nav th:fragment="page(pager)" aria-label="Page navigation example">
     <ul class="pagination justify-content-end page-box">
         <li th:class="${'page-item' + (pager.first ? ' disabled' : '')}" class="page-item disabled">

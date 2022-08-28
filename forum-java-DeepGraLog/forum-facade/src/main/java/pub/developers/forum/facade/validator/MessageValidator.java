@@ -14,6 +14,6 @@ public class MessageValidator {
     public static void page(MessagePageRequest request) {
         CheckUtil.checkParamToast(request, "request");
         CheckUtil.checkParamToast(request.getTypeDesc(), "typeDesc");
-        CheckUtil.checkParamToast(MessageTypeEn.getEntityByDesc(request.getTypeDesc()), "不存在的消息类型");
+        CheckUtil.checkParamToast(MessageTypeEn.getEntityByDesc(request.getTypeDesc()), "nonexistent message type");
     }
 }

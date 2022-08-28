@@ -27,26 +27,24 @@ public class AbstractLoginManager {
     CacheService cacheService;
 
     /**
-     * 用户登录凭证 token 过期时长（单位：秒）,7天
+     * Token expiration period (unit: second) : 7 days
      */
     private static final Long USER_LOGIN_TOKEN_EXPIRE_TIMEOUT = 60 * 60 * 24 * 7L;
 
     protected String login(User user, UserBaseLoginRequest baseLoginRequest) {
-        // 缓存登录凭证 token =》 user
+        // Cache login credentials token for user
         String token = StringUtil.generateUUID();
         cacheLoginUser(token, user);
 
-        // 触发保存操作日志事件
-//        EventBus.emit(EventBus.Topic.USER_LOGIN, OptLog.createUserLoginRecordLog(user.getId(), JSON.toJSONString(baseLoginRequest)));
 
         return token;
     }
 
     protected void cacheLoginUser(String token, User user) {
-        // 删除之前登录缓存
+        // Delete the previous login cache
         deleteLoginUser(user.getId());
 
-        // 重新保存缓存
+        // Re-saving the cache
         cacheService.setAndExpire(CacheBizTypeEn.USER_LOGIN_TOKEN
                 , String.valueOf(user.getId()), token, USER_LOGIN_TOKEN_EXPIRE_TIMEOUT);
         cacheService.setAndExpire(CacheBizTypeEn.USER_LOGIN_TOKEN
@@ -54,7 +52,7 @@ public class AbstractLoginManager {
     }
 
     protected void deleteLoginUser(Long userId) {
-        // 删除之前登录缓存
+        // Delete the previous login cache
         String oldToken = cacheService.get(CacheBizTypeEn.USER_LOGIN_TOKEN, String.valueOf(userId));
         if (!ObjectUtils.isEmpty(oldToken)) {
             cacheService.del(CacheBizTypeEn.USER_LOGIN_TOKEN, String.valueOf(userId));

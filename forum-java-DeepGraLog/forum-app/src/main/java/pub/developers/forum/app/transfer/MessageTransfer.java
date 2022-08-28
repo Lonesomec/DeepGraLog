@@ -48,7 +48,7 @@ public class MessageTransfer {
                 });
             }
             if (MessageTypeEn.FOLLOW_USER.equals(message.getType())) {
-                messagePageResponse.setTitle("关注了你");
+                messagePageResponse.setTitle("followed you");
                 messagePageResponse.setInfoId(loginUser.getId().toString());
             }
 

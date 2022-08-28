@@ -28,13 +28,13 @@ public class CommentPageResponse implements Serializable {
 
     private Long replyId;
 
-    /**评论人*/
+    /**commentator*/
     private Commentator commentator;
 
-    /**被回复人*/
+    /**respondent*/
     private Commentator respondent;
 
-    /**回复列表*/
+    /**reply list*/
     private List<CommentPageResponse> replies;
 
     @Data

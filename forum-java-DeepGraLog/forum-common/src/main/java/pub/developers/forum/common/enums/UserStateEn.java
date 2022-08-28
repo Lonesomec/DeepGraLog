@@ -14,9 +14,9 @@ public enum UserStateEn {
     /**
      *
      */
-    UN_ACTIVATION("UN_ACTIVATION", "未激活"),
-    ENABLE("ENABLE", "启用"),
-    DISABLE("DISABLE", "禁用"),
+    UN_ACTIVATION("UN_ACTIVATION", "inactive"),
+    ENABLE("ENABLE", "enable"),
+    DISABLE("DISABLE", "disable"),
     ;
 
     private String value;

@@ -26,7 +26,7 @@ public class StringUtil {
     }
 
     /**
-     * 获取16进制颜色值
+     * Gets the hexadecimal color value
      * @param str
      * @return
      */
@@ -51,7 +51,7 @@ public class StringUtil {
     }
 
     /**
-     * 生成 uuid 字符串
+     * Generate a UUID string
      *
      * @return
      */
@@ -60,7 +60,7 @@ public class StringUtil {
     }
 
     /**
-     * 对 value 进行 md5 加密
+     * Md5 is used to encrypt value
      * @param password
      * @return
      */
@@ -69,7 +69,7 @@ public class StringUtil {
     }
 
     /**
-     * 对 value 进行 md5 加密
+     * Md5 is used to encrypt value
      * @param value
      * @return
      */
@@ -78,7 +78,7 @@ public class StringUtil {
     }
 
     /**
-     * json string 属性值最大长度
+     * Json string Maximum length of the attribute value
      */
     private static final Integer MAX_LENGTH_FOR_PER_PROPERTY = 100;
 
@@ -87,7 +87,7 @@ public class StringUtil {
                 , new ValueFilter() {
                     @Override
                     public Object process(Object object, String name, Object value) {
-                        if(value instanceof String && ((String) value).length() > MAX_LENGTH_FOR_PER_PROPERTY){//String只打印前500个字符
+                        if(value instanceof String && ((String) value).length() > MAX_LENGTH_FOR_PER_PROPERTY){
                             return ((String) value).substring(0, MAX_LENGTH_FOR_PER_PROPERTY) + "...";
                         }
                         if(value instanceof byte[]){

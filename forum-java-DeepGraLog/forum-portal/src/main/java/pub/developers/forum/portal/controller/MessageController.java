@@ -41,13 +41,13 @@ public class MessageController {
     @Resource
     private WebUtil webUtil;
 
-    private static final String FOLLOW_USER = "用户关注";
+    private static final String FOLLOW_USER = "follow user";
 
-    private static final String COMMENT_ARTICLE = "评论文章";
-    private static final String APPROVAL_ARTICLE = "点赞文章";
+    private static final String COMMENT_ARTICLE = "comment article";
+    private static final String APPROVAL_ARTICLE = "like article";
 
-    private static final String COMMENT_FAQ = "评论问答";
-    private static final String APPROVAL_FAQ = "关注问答";
+    private static final String COMMENT_FAQ = "comment Q&A";
+    private static final String APPROVAL_FAQ = "follow Q&A";
 
 
     private static final List<String> TYPE_LIST = Arrays.asList(FOLLOW_USER, COMMENT_ARTICLE, APPROVAL_ARTICLE, COMMENT_FAQ, APPROVAL_FAQ);

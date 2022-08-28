@@ -15,22 +15,22 @@ public class BizException extends RuntimeException {
     private Integer code;
 
     /**
-     * @desc 默认为系统异常
+     * @desc  default system exception
      */
     public BizException() {
         this(ErrorCodeEn.SYSTEM_ERROR);
     }
 
     /**
-     * @desc 指定参数的业务异常
-     * @param errorCode 异常枚举
+     * @desc abnormal specified parameter service
+     * @param errorCode Abnormal enumeration
      */
     public BizException(ErrorCodeEn errorCode) {
         this(errorCode.getCode(), errorCode.getMessage());
     }
 
     /**
-     * @desc 指定参数的业务异常
+     * @desc abnormal specified parameter service
      * @param code code
      * @param message message
      */

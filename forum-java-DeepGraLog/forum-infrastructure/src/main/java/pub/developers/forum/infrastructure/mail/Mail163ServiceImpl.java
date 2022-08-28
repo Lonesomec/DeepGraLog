@@ -42,7 +42,7 @@ public class Mail163ServiceImpl implements MailService {
     private String fromAddress;
 
     /**
-     * 发送html内容
+     *
      * @param mailMessage
      */
     @Override
@@ -61,7 +61,7 @@ public class Mail163ServiceImpl implements MailService {
     }
 
     /**
-     * 发送文本内容
+     *
      * @param mailMessage
      */
     @Override

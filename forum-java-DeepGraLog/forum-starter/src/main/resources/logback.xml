@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod=" 5 seconds" debug="false">
 
-    <!-- 定义变量 -->
+    <!-- Define variables -->
     <property name="log.path" value="D:/forum-java"/>
     <property name="log.level" value="info"/>
     <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-4relative:%thread] %-5level %logger{56} - %msg%n" />
     <property name="max.day" value="20"/>
     <property name="max.size" value="100mb" />
 
-    <!-- 控制台输出 -->
+    <!-- Console output -->
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
-    <!-- 业务日志 -->
+    <!-- Business log -->
     <appender name="forum-java" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>${log.path}/forum-java.log</File>
         <encoder>
@@ -33,7 +33,7 @@
         </filter>
     </appender>
 
-    <!-- controller 访问日志 -->
+    <!-- controller Access log -->
     <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>${log.path}/access.log</File>
         <encoder>
@@ -51,7 +51,7 @@
         </filter>
     </appender>
 
-    <!-- 异常日志 -->
+    <!-- Abnormal log -->
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>${log.path}/error.log</File>
         <encoder>

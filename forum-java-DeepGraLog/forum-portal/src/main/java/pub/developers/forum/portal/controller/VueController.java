@@ -42,7 +42,7 @@ public class VueController {
     public String admin(HttpServletRequest request) {
         String sid = WebUtil.cookieGetSid(request);
         if (ObjectUtils.isEmpty(sid)) {
-            throw ViewException.build("用户未登录");
+                throw ViewException.build("The user is not logged in.");
         }
 
         ResultModel<UserInfoResponse> resultModel = userApiService.info(sid);
@@ -51,7 +51,7 @@ public class VueController {
         }
         UserInfoResponse userInfoResponse = resultModel.getData();
         if (UserRoleEn.USER.getValue().equals(userInfoResponse.getRole())) {
-            throw ViewException.build("无权限访问");
+            throw ViewException.build("No permission");
         }
 
         return "vue-admin";

@@ -89,7 +89,7 @@ public class FaqTransfer {
                     .views(faq.getViews())
                     .approvals(faq.getApprovals())
                     .solution(solution)
-                    .solutionDesc(solution == null ? "未解决" : "已解决")
+                    .solutionDesc(solution == null ? "Not solved" : "resolved")
                     .build();
         }).collect(Collectors.toList());
     }

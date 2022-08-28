@@ -23,12 +23,12 @@ public class TagQueryResponse implements Serializable {
     private String groupName;
 
     /**
-     * 名称
+     * name
      */
     private String name;
 
     /**
-     * 描述
+     * description
      */
     private String description;
 

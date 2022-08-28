@@ -31,16 +31,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    // new QiniuUploadPlugin({
-    //   publicPath: 'http://idv093d.qiniudns.com', // 七牛云域名，自动替换 publicPath
-    //   accessKey: 'a-oiFODF_MW3QCX2EhGbfM3VGXOezGE9pO2ZdHYQ', // 个人中心，秘钥管理，AK
-    //   secretKey: 'MGyMncc0chkalTyS9mWUMcnPYtz62Ob3My1rFg3w', // 个人中心，秘钥管理，SK
-    //   bucket: 'developers-assets', // 存储空间名称
-    //   zone: 'Zone_z1', // 存储地区
-    //   // 可选参数：
-    //   cover: false // 慎用！默认为 false，设置为 true 会覆盖掉已经保存在七牛云上的同名文件。
-    // }),
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
     }),
@@ -58,7 +48,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
+      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),

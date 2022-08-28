@@ -19,22 +19,22 @@ import java.io.Serializable;
 public class ArticleAdminTypePageRequest implements Serializable {
 
     /**
-     * 名称
+     * name
      */
     private String name;
 
     /**
-     * 描述
+     * description
      */
     private String description;
 
     /**
-     * 作用域
+     * scope
      */
     private String scope;
 
     /**
-     * 审核状态
+     * audit state
      */
     private String auditState;
 }
