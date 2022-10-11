@@ -6,11 +6,11 @@ We have made the following modifications for this project:</br>
 2.Four types of defects are injected into system code.(see comments section)</br>
 ...
 # Dataset
-The dataset includes 5,076,117 log messages which are combined with invocation information of
-the system source code files, and among the log messages,2010200 (39.6%) are anomalous ones caused by the four faults
+The dataset includes 6,785,624log messages which are combined with invocation information of
+the system source code files, and among the log messages,894,955(13.19%) are anomalous ones caused by the four faults
 injected in. </br>
 
-**You can get it from the release v1.0.**</br>
+**You can get it from our repository. **</br>
 
 ## Paper Reference
 
